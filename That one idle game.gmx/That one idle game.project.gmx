@@ -3,31 +3,42 @@
   <Configs name="configs">
     <Config>Configs\Default</Config>
   </Configs>
+  <datafiles number="1" name="datafiles">
+    <datafile>
+      <name>TODO.txt</name>
+      <exists>-1</exists>
+      <size>0</size>
+      <exportAction>2</exportAction>
+      <exportDir></exportDir>
+      <overwrite>0</overwrite>
+      <freeData>-1</freeData>
+      <removeEnd>0</removeEnd>
+      <store>0</store>
+      <ConfigOptions>
+        <Config name="Default">
+          <CopyToMask>9223372036854775807</CopyToMask>
+        </Config>
+      </ConfigOptions>
+      <filename>TODO.txt</filename>
+    </datafile>
+  </datafiles>
   <NewExtensions/>
   <sounds name="sound"/>
   <sprites name="sprites">
-    <sprite>sprites\spr_logo</sprite>
-    <sprites name="Clickers">
-      <sprites name="Ores">
-        <sprite>sprites\spr_coalore</sprite>
-        <sprite>sprites\spr_copperore</sprite>
-        <sprite>sprites\spr_ironore</sprite>
-      </sprites>
+    <sprites name="UI">
+      <sprite>sprites\sGradient</sprite>
     </sprites>
-    <sprite>sprites\spr_button_w_desc</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
   <scripts name="scripts">
-    <script>scripts\ideas.gml</script>
-    <script>scripts\scr_vars.gml</script>
+    <script>scripts\colors.gml</script>
   </scripts>
   <objects name="objects">
-    <object>objects\obj_button_clickerchoice_ores</object>
+    <object>objects\oUIMain</object>
   </objects>
   <rooms name="rooms">
-    <room>rooms\rm_game_clicker_menu</room>
-    <room>rooms\rm_game_clicker_ores</room>
+    <room>rooms\rTest</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
