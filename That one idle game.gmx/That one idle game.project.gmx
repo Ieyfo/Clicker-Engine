@@ -27,6 +27,9 @@
   <sprites name="sprites">
     <sprites name="UI">
       <sprite>sprites\sGradient</sprite>
+      <sprite>sprites\sAdvancements</sprite>
+      <sprite>sprites\sWork</sprite>
+      <sprite>sprites\sUpgrade</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background"/>
@@ -34,6 +37,9 @@
   <scripts name="scripts">
     <script>scripts\colors.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\sOptionOn</font>
+  </fonts>
   <objects name="objects">
     <object>objects\oUIMain</object>
   </objects>
