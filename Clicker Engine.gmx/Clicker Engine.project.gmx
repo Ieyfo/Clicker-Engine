@@ -99,6 +99,7 @@
       <object>objects\ui_ani_control</object>
       <object>objects\ui_swipe</object>
     </objects>
+    <object>objects\object24</object>
   </objects>
   <help>
     <rtf>help.rtf</rtf>
