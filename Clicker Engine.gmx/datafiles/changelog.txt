@@ -1,0 +1,93 @@
+September 2014 MarketPlace Release 1.4.2
+===================================================
+Minor change.  Fix for when you set uiAniMove=true when widget is already currently moving.
+
+
+
+June 2014 Release 1.4 (built with v1.3.1354)
+===================================================
+Lots of changes in this release:
+
+New Widgets!
+***************************
+ui_bubble :  fun, easy, and very flexible pop-up bubbles...auto-scales, word-wraps, directional and auto-close on timeout...and more.
+
+ui_dialog :  a great way to add a 'nice' dialog to your game.  Many features, auto-sizing, support for up to 4 custom buttons, checkbox and input labels for things like asking for username,password etc.  See sample project for interactive demo.
+
+ui_image  :  similar to button, but easier to use when you just want to display a sprite, but with all the NailBuster GUI features/animation support.
+
+ui_label_score :  a label that is used for displaying of scores,  supports all sorts of nice animation support and changing the score will animate the numbers to the next value...fully customizable, see demo for sample.
+
+ui_ani_control :  v1.4 has entirely new method for animation and tweening support using this widget.  YOU won't use this widget directly, it is automatically created/destroyed for you when using the standard NailBuster animation (uiPulse, uiWobble, uiSparkle)...it is a base for support much more animation support in future versions...
+
+****************************
+
+New methods/properties:
+
+Tweening support for animation (big change!!)
+	All widget animations now using tweening for a better/smoother look to the animations.  There are many different tweens to try out to see which one you prefer.  See ui_defaults create method (at end) to see all the new uiEase properties.
+
+new uiPopUp, uiPopDown animations methods.  Set uiPopUp=true on a ui_image or ui_label to see the new animated popup.
+
+
+Sound Support!
+all widgets support setting uiClickSound=sound_yourclicksound; 
+
+also, sound support callback scripts incase you want to do more like haptic and such.
+to use sound callback set the following:
+uiCallBackSound=true;         //if want to do more complex sound/haptic then use this and then set the sounds to custom_scripts;
+uiClickSound=your_sound_callback_script();
+
+
+button_ani:
+  uiTextFixedX=-1;   //use this for text x postion relative to x;
+  uiTextFixedY=-1;
+sometimes when displaying a button you want total control where the uiTextValue is displayed...this allows you to specify the drawtext x,y (relative to the widgets x,y)
+
+uiTextTrim=true;   //whether you want to trim text to button width.
+
+uiAnchor:   depth.  children are automatically set to depth-1 of parent.
+
+scr_customDrawBack:  on some controls you can use your own script to draw the background so that you can have very fancy backgrounds drawn instead of the standard widget background.
+
+added uiCurHeight,uiCurWidth to get the current height/width of the widget.
+
+ui_editbox now has uiTextLabel property along with uiTextLabelColor:  This will draw a text label next to editbox (left of editbox)
+
+ui_label:  big changes!
+  ui_label now has support for uiDrawShadows=x (x=number of pixels thick shadow, keep low on low cpus)
+  ui_label now has support for uiDrawOutlines=x (x=number of pixels thick outline, keep low on low cpus)
+  ui_label will now auto-word wrap, and support hovering and supports full animations 
+
+
+gauge, now supports gaugeback sprite with custom bar location!  See demo and look at the custom mask on the background sprite to see the 'trick' of how you setup where the gauge goes.  This method of custom mask box also is used for location of text in a bubble!
+
+uiClickOnChar supported...you can now set on a button uiClickOnChar='A', and the button will press if the letter A is pressed....
+
+update keyboard to fullsize keys/smaller drawing...to work a lot better on mobile devices.
+
+all widgets now support uiDestroy=x;  (x=number of steps that pass before widget will fadeout nicley and destroy itself....good for popup labels)
+
+NOTE:  Library was built in v1.3.1354,  and it had to use a the new method draw_roundrect_color_ext,  if you are importing the sample project into an older version of GMStudio, you will get an error that the script is not found....a simple solution,  I've added a script already in the sample named "RENAMEv12_draw_roundrect_color_ext",  just remove the "RENAMEv12_" from the script name and the project will compile fine in v1.2.12xx.
+
+
+
+Apri 18/2014  Release v1.3 (built v1.2.1264)
+===================================================
+New Widget!!  Added editbox widget for in-line text editing, lots of options, tab-support, popup keyboard;
+New Widget!!  Added ui_keyboard widget, works with editcontrol for custom keyboard entry, customizable keys, sizes and more....
+Buttons widget,  added custom spritedown support for toggle button.
+Button animation now 'move & zoom' the text along with buttons.
+Added new button animation, "jello", see button animation demo room.
+All widgets,  added uiSetWidth=xxx, added uiSetHeight=xxx, for easier widget code sizing (outsite room editor)
+minor bug fixes...
+Added manual!
+Note:  If updating you need to update the new spr_ui(sprite) because it has new graphics for keyboard widget.
+
+===================================================
+Dec 13/2013  Release v1.2
+===================================================
+New widget!! Horizontal List Scroll Box (w/ optional custom draw control)
+Panel save children state.  When disable/visible property set on panel then all children will temporary inherit panel status, and restored when panel is re-enabled.
+ListBox: improved scroll logic to feel move 'smoother', larger swipes will scroll listbox quicker/further
+ListBox:  support for #, and multi-line improvements when setting uiMemo='xxxxxxx';
