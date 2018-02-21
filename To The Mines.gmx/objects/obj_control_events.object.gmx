@@ -25,20 +25,10 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>colors();
-spacing = 20
-optionSpacing = 24;
-optionsBackStart = 950;
-optionSelectStart = spacing;
-optionSelectSize = 64;
-optionElementStart = optionSelectStart+spacing+optionSelectSize;
-optionHover = noone;
-optionOn = 0;
-
-// Options
-option[0] = sAdvancements;
-option[1] = sWork;
-option[2] = sUpgrade;
+            <string>scr_orecoal()
+global.achievement_rightbar = false
+global.achievement_leftbar = false
+global.achievement_findcopper = false
 </string>
           </argument>
         </arguments>
@@ -61,17 +51,20 @@ option[2] = sUpgrade;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>for(var i=0; i&lt;array_length_1d(option); i++){
-    if(point_in_rectangle(mouse_x, mouse_y, optionsBackStart+spacing+optionSpacing+(i*(optionSelectSize+optionSpacing)), spacing, optionSelectSize+optionsBackStart+spacing+optionSpacing+(i*(optionSelectSize+optionSpacing)), spacing+optionSelectSize)){
-        optionHover = i;
-    }else{
-        optionHover = noone;
-    }
-    
-    if(mouse_check_button_pressed(mb_left) &amp;&amp; point_in_rectangle(mouse_x, mouse_y, optionsBackStart+spacing+optionSpacing+(i*(optionSelectSize+optionSpacing)), spacing, optionSelectSize+optionsBackStart+spacing+optionSpacing+(i*(optionSelectSize+optionSpacing)), spacing+optionSelectSize)){
-        optionOn = i;
-    }
-}
+            <string>if(global.orecoal = 1 &amp;&amp; global.achievement_rightbar = false) {
+    global.achievement_rightbar = true
+    scr_setevents("Right bar unlocked!")
+    instance_create(1000,360,obj_sidebar_right)
+    }   
+if(global.orecoal = 10 &amp;&amp; global.achievement_leftbar = false) {
+    global.achievement_leftbar = true
+    scr_setevents("Left bar unlocked!")
+    instance_create(80,360,obj_sidebar_left)
+    }  
+if(global.orecopper = 1 &amp;&amp; global.achievement_findcopper = false) {
+    global.achievement_findcopper = true
+    scr_setevents("You found copper!")
+    }  
 
 
 </string>
@@ -79,7 +72,7 @@ option[2] = sUpgrade;
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="9" enumb="112">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -96,32 +89,16 @@ option[2] = sUpgrade;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Draw Background
-draw_rectangle_colour(0, 0, room_width, room_height, global.main, global.main, global.main, global.main, false);
+            <string>
+    rightbarcreated = true
+    scr_setevents("Right bar unlocked!")
+    instance_create(1000,360,obj_sidebar_right)
 
-// Draw Gradient for options background
-draw_sprite_ext(sGradient, 0, optionsBackStart, 0, 1, room_height, 0, c_white, 1)
 
-// Draw Options Background
-draw_rectangle_colour(optionsBackStart, 0, room_width, room_height, global.main2, global.main2, global.main2, global.main2, false);
+    leftbarcreated = true
+    scr_setevents("Left bar unlocked!")
+    instance_create(80,360,obj_sidebar_left)
 
-// Draw Inner Elements
-// Option Select
-draw_rectangle_colour(optionsBackStart+spacing, spacing, room_width-spacing, spacing+optionSelectSize, global.main3, global.main3, global.main3, global.main3, false);
-
-//Draw Options
-for(var i=0; i&lt;array_length_1d(option); i++){
-    if(optionHover == i){
-        draw_sprite_ext(option[i], 0, optionsBackStart+spacing+optionSpacing+(i*(optionSelectSize+optionSpacing)), spacing, 1, 1, 0, c_dkgray, .6);
-    }else{
-        draw_sprite(option[i], 0, optionsBackStart+spacing+optionSpacing+(i*(optionSelectSize+optionSpacing)), spacing);
-    }
-}
-
-// Options elements
-draw_rectangle_colour(optionsBackStart+spacing, optionElementStart, room_width-spacing, room_height-spacing, global.main3, global.main3, global.main3, global.main3, false);
-
-// Text would go here
 </string>
           </argument>
         </arguments>
